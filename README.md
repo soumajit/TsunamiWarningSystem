@@ -27,29 +27,22 @@ Edit `conf/activemq.xml` and add the following connector, the port number `61613
     <transportConnector name="stomp" uri="stomp://0.0.0.0:61613"/>
 </transportConnectors>
 ```
-
 #### Start ActiveMQ
-
 ```bash
 ./bin/activemq console
 ```
-
 ### Node.JS
-
 (node.js)[http://nodejs.org/] => 0.10
 Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, 
 scalable network applications. Node.js uses an event-driven, non-blocking I/O model 
 that makes it lightweight and efficient, perfect for data-intensive real-time 
 applications that run across distributed devices.
-
 ```bash
 sudo apt-get install nodejs npm
 ```
-
 ### Other Dependencies
 `Socket.io`, `stomp.js` and `configure`
 For installing these dependencies we need to install Node.js package manager first.
-
 ```bash
 sudo apt-get install npm
 ```
@@ -69,54 +62,46 @@ interoperability among many languages, platforms and brokers.
 ```bash
 npm install stomp
 ```
-
 #### Get Configure
 A simple multiple-configuration management module
 By default the `nodejs` binary is created in `/usr/bin` upon installing `node.js`.
 The `Configure` will be installed using the command `node install.js`, what we
 need to is to create a symbolic link to `/usr/bin/node` from `nodejs` binary.
-
 ```bash
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 ```
 ```bash
 npm install configure
 ```
-
 ## Run the server.js
 ```bash
 node server.js --config config.json
 ```
 ## Run the sensor buoys program
 ```bash 
-node sensor-buoy.js <alert-type> <buoy-name> --config config.json
+node sensor-buoy.js <ALERT-TYPE> <BUOY-NAMES> --config config.json
 ```
-<alert-types>: 
+ALERT-TYPES: 
 1. `reg-alert` : Regular Alert
 2. `low-alert` : Low Alert
 3. `med-alert` : Medium Alert
 4. `high-alert`: High Alert
-
-<buoy-names>
+BUOY-NAMES:
 1. `buoy1`
 2. `buoy2`
 3. `buoy3`
-
 ## Deploy the Web Server
 TWS comes along with a web service
 You could deploy it in either `apache` or `nginix`.
 For the simplicity, I prefer, `apache`
-
 ### Install Apache
 ```bash
 sudo apt-get install apache2
 ```
-
 Copy `web-service` to `/var/www` directory
 ```bash
 cp -r web-server /var/www
 ```
-
 ### Configure Apache 
 Change the `DocumentRoot` to `/var/www/web-service` in 
 `/etc/apache2/sites-available/000-default.conf` file.
