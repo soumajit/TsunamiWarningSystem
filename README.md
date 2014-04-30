@@ -6,7 +6,7 @@ TWS mainly requires
 
 ### Apache ActiveMQ
 
-(Apache ActiveMQ)[https://activemq.apache.org/activemq-560-release.html] => `5.6.0` 
+[Apache ActiveMQ](https://activemq.apache.org/activemq-560-release.html) => `5.6.0` 
 ActiveMQ is an open source Java JMS message queue. It supports the Stomp protocol, 
 which ActiveMessaging uses to send and receive messages.
 
@@ -32,7 +32,7 @@ Edit `conf/activemq.xml` and add the following connector, the port number `61613
 ./bin/activemq console
 ```
 ### Node.JS
-(node.js)[http://nodejs.org/] => 0.10
+[node.js](http://nodejs.org/) => 0.10
 Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, 
 scalable network applications. Node.js uses an event-driven, non-blocking I/O model 
 that makes it lightweight and efficient, perfect for data-intensive real-time 
@@ -82,17 +82,27 @@ node server.js --config config.json
 node sensor-buoy.js <ALERT-TYPE> <BUOY-NAMES> --config config.json
 ```
 ALERT-TYPES: 
+
 1. `reg-alert` : Regular Alert
+
 2. `low-alert` : Low Alert
+
 3. `med-alert` : Medium Alert
+
 4. `high-alert`: High Alert
+
 BUOY-NAMES:
+
 1. `buoy1`
+
 2. `buoy2`
+
 3. `buoy3`
+
 ## Deploy the Web Server
 TWS comes along with a web service
 You could deploy it in either `apache` or `nginix`.
+
 For the simplicity, I prefer, `apache`
 ### Install Apache
 ```bash
