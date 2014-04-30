@@ -15,3 +15,7 @@ Session.vim
 # KDE directory preferences
 .directory
 
+apache-activemq-5.6.0-bin.tar.gz
+apache-activemq-5.6.0/
+node_modules/
+web-service/node_modules/
