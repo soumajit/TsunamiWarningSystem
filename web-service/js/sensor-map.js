@@ -22,6 +22,9 @@
 	else if (obj == "buoy3") {
 		markers[2].setAnimation(google.maps.Animation.BOUNCE);
 	}
+	else if (obj == "buoy4") {
+		markers[3].setAnimation(google.maps.Animation.BOUNCE);
+	}
   	});
   
 
@@ -30,7 +33,7 @@ var map;
 function initialize() {
 	var mapOptions = {
 	zoom: 4,
-	center: new google.maps.LatLng(9.092732,76.494087)
+	center: new google.maps.LatLng(20.092732,80.494087)
 	};
 	map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
 	var marker1 = new google.maps.Marker({                        
@@ -54,9 +57,17 @@ function initialize() {
 		 animation: google.maps.Animation.DROP,                   
                 map: map
         });
+	var marker4 = new google.maps.Marker({                        
+                position:  new google.maps.LatLng(7.092732, 84.494087), 
+		icon: getCircle(),
+		title: 'Sensor Buoy-4',
+		 animation: google.maps.Animation.DROP,                   
+                map: map
+        });
 	markers.push(marker1);
 	markers.push(marker2);
 	markers.push(marker3);
+	markers.push(marker4);
 	
 }
 

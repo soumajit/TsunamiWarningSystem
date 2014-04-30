@@ -32,7 +32,7 @@ var stomp_args ={
         passcode: config.stomp.pass
 }
 
-var pos = "{\"buoy1\": {\"lat\": 9.092732, \"lng\": 72.494087 }, \"buoy2\": { \"lat\": 8.092732, \"lng\": 74.494087 }, \"buoy3\": { \"lat\": 12.092732, \"lng\": 76.494087 }}";
+var pos = "{\"buoy1\": {\"lat\": 9.092732, \"lng\": 72.494087 }, \"buoy2\": { \"lat\": 8.092732, \"lng\": 74.494087 }, \"buoy3\": { \"lat\": 12.092732, \"lng\": 76.494087 }, \"buoy4\": { \"lat\": 7.092732, \"lng\": 84.494087 }}";
 
 // Server handle to connect to Central Message Broker
 var client = new stomp.Stomp(stomp_args); 
@@ -44,7 +44,7 @@ var headers = { destination: '/queue/Buoys' };
 
 // Server providing web-socket service
 server.listen(8080,function() {
-        console.log('\nTsunami Warning System Server');
+    console.log('\nTsunami Warning System Server');
 	console.log('\nRunning on http://0.0.0.0:8080/');
 	console.log('\nMonitor Service on http://localhost/tws/index.html')
 });

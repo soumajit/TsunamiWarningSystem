@@ -1,0 +1,24 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700|Merriweather:400,400italic,700|Oswald:400,700);
+h1,
+h2, 
+h3,
+h4,
+h5,
+h6,
+.navbar-brand,
+ul > li > a,
+table > thead > th > td {
+    font-family: Oswald;
+}
+
+body, 
+p,
+table > tbody > tr > td {
+    font-family: 'Open Sans';
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+

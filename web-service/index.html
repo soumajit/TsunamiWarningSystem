@@ -1,130 +1,146 @@
 <html lang="en"><head>
-    <meta charset="utf-8">
-    <title>Tsunami Warning System</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
-    <script src="js/jquery-1.11.0.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/socket.io.js"></script>
-	<script type="text/javascript">
-	
-  	var socket1 = io.connect('http://localhost:8080');
-	$('#signals').empty();
-  	socket1.on('regular', function (data) {
-		var data = JSON.parse(data.data);
-    		$('#signals').prepend('<tr><td>'+data.buoy+'</td><td><span class="label label-success">REGULAR</span></td><td>'+data.pressure+'</td><td>'+data.ritcher+'</td></tr>');
-  	});
-	socket1.on('low-alert', function (data) {
-		var data = JSON.parse(data.data);	
-    		$('#signals').prepend('<tr><td>'+data.buoy+'</td><td><span class="label label-warning">LOW-ALERT</span></td><td>'+data.pressure+'</td><td>'+data.ritcher+'</td></tr>');
-  	});
-	socket1.on('med-alert', function (data) {
-		var data = JSON.parse(data.data);	
-    		$('#signals').prepend('<tr><td>'+data.buoy+'</td><td><span class="label label-warning">MEDIUM-ALERT</span></td><td>'+data.pressure+'</td><td>'+data.ritcher+'</td></tr>');
-  	});
-	socket1.on('high-alert', function (data) {
-		var data = JSON.parse(data.data);	
-    		$('#signals').prepend('<tr><td>'+data.buoy+'</td><td><span class="label label-danger">HIGH-ALERT</span></td><td>'+data.pressure+'</td><td>'+data.ritcher+'</td></tr>');
-  	});
-	</script>
-	
-	
-  </head>
-  <body>
-    <div class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="index.html" class="navbar-brand">Tsunami Warning System</a>
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="navbar-collapse collapse" id="navbar-main">
-          <ul class="nav navbar-nav">
-            <li>
-              <a href="about.html">About</a>
-            </li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Pre-requisites <span class="caret"></span></a>
-              <ul class="dropdown-menu" aria-labelledby="download">
-		
-		<li><a href="js/jquery-1.11.0.js">jQuery.js</a></li>
-		<li><a href="js/bootstrap.min.js">bootstrap.min.js</a></li>
-                <li><a href="css/bootstrap.min.css">bootstrap.min.css</a></li>
-                <li><a href="css/bootstrap.css">bootstrap.css</a></li>
-                <li class="divider"></li>
-                <li><a href="http://nodejs.org">node.js</a></li>
-                <li><a href="http://socket.io">socket.io</a></li>
-		<li><a href="https://github.com/benjaminws/stomp-js">stomp.js</a></li>
-		<li><a href="https://www.npmjs.org/package/configure">configure</a></li>
-		<li class="divider"></li>
-                <li><a href="https://activemq.apache.org/download.html">Active MQ</a></li>
-              </ul>
-            </li>
-          </ul>
+<meta charset="utf-8">
+<title>Tsunami Warning System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.css" media="screen">
+<link rel="stylesheet" href="css/style.css" media="screen">
 
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="https://github.com/soumajit/TsunamiWarningSystem" target="_blank">Source Code</a></li>
-            <li><a href="team.html" target="_blank">Team</a></li>
-          </ul>
+<style>
+.scrollit {
+    overflow-y:scroll;
+    height:600px;
+}
+tbody
+{
+    overflow:scroll;
+}
+</style>
+<script src="js/jquery-1.11.0.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/socket.io.js"></script>
+<script type="text/javascript">
+var socket1 = io.connect('http://localhost:8080');
+$('#signals').empty();
+socket1.on('regular', function (data) {
+        var data = JSON.parse(data.data);
+        $('#signals').prepend('<tr><td>'+data.buoy+'</td><td><span class="label label-success">REGULAR</span></td><td>'+data.pressure+'</td><td>'+data.ritcher+'</td></tr>');
+        });
+socket1.on('low-alert', function (data) {
+        var data = JSON.parse(data.data);	
+        $('#signals').prepend('<tr><td>'+data.buoy+'</td><td><span class="label label-warning">LOW</span></td><td>'+data.pressure+'</td><td>'+data.ritcher+'</td></tr>');
+        });
+socket1.on('med-alert', function (data) {
+        var data = JSON.parse(data.data);	
+        $('#signals').prepend('<tr><td>'+data.buoy+'</td><td><span class="label label-warning">MEDIUM</span></td><td>'+data.pressure+'</td><td>'+data.ritcher+'</td></tr>');
+        });
+socket1.on('high-alert', function (data) {
+        var data = JSON.parse(data.data);	
+        $('#signals').prepend('<tr><td>'+data.buoy+'</td><td><span class="label label-danger">HIGH</span></td><td>'+data.pressure+'</td><td>'+data.ritcher+'</td></tr>');
+        });
+</script>
+
+</head>
+<body>
+<div class="navbar-primary">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="index.html" class="navbar-brand">Tsunami Warning System</a>
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav">
+                    <li>
+                    <a href="about.html">About</a>
+                    </li>
+                    <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Pre-requisites <span class="caret"></span></a>
+                    <ul class="dropdown-menu" aria-labelledby="download">
+
+                        <li><a href="js/jquery-1.11.0.js">jQuery.js</a></li>
+                        <li><a href="js/bootstrap.min.js">bootstrap.min.js</a></li>
+                        <li><a href="css/bootstrap.min.css">bootstrap.min.css</a></li>
+                        <li><a href="css/bootstrap.css">bootstrap.css</a></li>
+                        <li class="divider"></li>
+                        <li><a href="http://nodejs.org">node.js</a></li>
+                        <li><a href="http://socket.io">socket.io</a></li>
+                        <li><a href="https://github.com/benjaminws/stomp-js">stomp.js</a></li>
+                        <li><a href="https://www.npmjs.org/package/configure">configure</a></li>
+                        <li class="divider"></li>
+                        <li><a href="https://activemq.apache.org/download.html">Active MQ</a></li>
+                    </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="https://github.com/soumajit/TsunamiWarningSystem" target="_blank">Source Code</a></li>
+                    <li><a href="team.html" target="_blank">Team</a></li>
+                </ul>
+            </div>
+        </div><!--navbar-collapse-->
+    </nav><!--navbar-->
+</div><!--navbar-primary-->
+
+
+<div class="container-fluid">
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3>TWS Monitor</h3>
+
+            </div>
 
         </div>
-      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <p class="lead">Sensor Location</p>
+            <div class="well" id="map-canvas" class="center" style="height:500px;width:100%;">
+                <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+                <script src="js/sensor-map.js"></script>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="scrollit">
+                <table class="table table-bordered table-striped" id="signals">
+                    <thead>
+                        <th>Buoy Name</th>
+                        <th>Alert Level</th>
+                        <th>Pressure (kPa)</th>
+                        <th>Richter Scale</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div><!--scrollit-->
+        </div>
     </div>
 
 
-    <div class="container">
 
-      <div class="page-header" id="banner">
+
+    <footer><hr>
         <div class="row">
-          <div class="col-lg-6">
-            <h3>TWS Monitor</h3>
-            
-          </div>
-         
-        </div>
-      </div>
-	<div class="row">
-		  <div class="col-lg-6">
-		    <p class="lead">Sensor Location</p>
-		    <div class="well" id="map-canvas" class="center" style="height:300px;width:100%;">
-			<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-			<script src="js/sensor-map.js"></script>
-		    </div>
-		  </div>
-		 <div class="col-lg-6">
-		    <p class="lead">Sensor Alerts</p>
-		    <div class="well" style="height:300px; max-height:300px;overflow-y:hidden;">
-			<table class="table"><tr><td  width="20%">Buoy Name</td><td  width="40%">Alert Level</td><td width="20%">Pressure (kPa)</td><td>Richter Scale</td></tr></table>
-			<table class="table" id="signals"></table>
-		    </div>
-		  </div>
-	</div>
-	
+            <div class="col-lg-12">
 
-    
+                <ul class="list-unstyled">
+                    <li class="pull-right"><a href="#top">Back to top</a></li>
 
-      <footer><hr>
-        <div class="row">
-          <div class="col-lg-12">
-	
-            <ul class="list-unstyled">
-              <li class="pull-right"><a href="#top">Back to top</a></li>
-              
-              <li><a href="https://github.com/soumajit/TsunamiWarningSystem">GitHub</a></li>
-              
-            </ul>
-            <!--<p>Made by <a href="http://thomaspark.me" rel="nofollow">Thomas Park</a>. Contact him at <a href="mailto:thomas@bootswatch.com">thomas@bootswatch.com</a>.</p>
+                    <li><a href="https://github.com/soumajit/TsunamiWarningSystem">GitHub</a></li>
+
+                </ul>
+                <!--<p>Made by <a href="http://thomaspark.me" rel="nofollow">Thomas Park</a>. Contact him at <a href="mailto:thomas@bootswatch.com">thomas@bootswatch.com</a>.</p>
             <p>Code released under the <a href="https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE">MIT License</a>.</p>-->
-            <p>Based on <a href="http://getbootstrap.com" rel="nofollow">Bootstrap</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts" rel="nofollow">Google</a>.</p>
+                <p>Based on <a href="http://getbootstrap.com" rel="nofollow">Bootstrap</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts" rel="nofollow">Google</a>.</p>
 
-          </div>
+            </div>
         </div>
 
-      </footer>
+    </footer>
 
 
-    </div>
+</div>
 </body></html>
