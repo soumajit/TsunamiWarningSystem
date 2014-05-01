@@ -2,7 +2,7 @@
 "stomp": {
                 "host":"localhost",
                 "port":61613,
-                "debug": "false",
+                "debug": "true",
                 "login":"",
                 "pass":""
         },

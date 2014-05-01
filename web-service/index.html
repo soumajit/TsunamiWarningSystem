@@ -21,13 +21,13 @@ tbody
 <script type="text/javascript">
 var socket1 = io.connect('http://localhost:8080');
 $('#signals').empty();
-socket1.on('regular', function (data) {
+socket1.on('reg-alert', function (data) {
         var data = JSON.parse(data.data);
         $('#signals').prepend('<tr><td>'+data.buoy+'</td><td><span class="label label-success">REGULAR</span></td><td>'+data.pressure+'</td><td>'+data.ritcher+'</td></tr>');
         });
 socket1.on('low-alert', function (data) {
         var data = JSON.parse(data.data);	
-        $('#signals').prepend('<tr><td>'+data.buoy+'</td><td><span class="label label-warning">LOW</span></td><td>'+data.pressure+'</td><td>'+data.ritcher+'</td></tr>');
+        $('#signals').prepend('<tr><td>'+data.buoy+'</td><td><span class="label label-info">LOW</span></td><td>'+data.pressure+'</td><td>'+data.ritcher+'</td></tr>');
         });
 socket1.on('med-alert', function (data) {
         var data = JSON.parse(data.data);	
@@ -45,7 +45,7 @@ socket1.on('high-alert', function (data) {
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a href="index.html" class="navbar-brand">Tsunami Warning System</a>
+                <a href="index.html" class="navbar-brand"><i class="glyphicon glyphicon-bell"></i> Tsunami Warning System</a>
                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -78,7 +78,7 @@ socket1.on('high-alert', function (data) {
 
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="https://github.com/soumajit/TsunamiWarningSystem" target="_blank">Source Code</a></li>
-                    <li><a href="team.html" target="_blank">Team</a></li>
+                    <li><a href="team.html">Team</a></li>
                 </ul>
             </div>
         </div><!--navbar-collapse-->
@@ -98,7 +98,7 @@ socket1.on('high-alert', function (data) {
     </div>
     <div class="row">
         <div class="col-md-6">
-            <p class="lead">Sensor Location</p>
+            <p class="lead"><i class="glyphicon glyphicon-map-marker"></i> Sensor Location</p>
             <div class="well" id="map-canvas" class="center" style="height:500px;width:100%;">
                 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
                 <script src="js/sensor-map.js"></script>
