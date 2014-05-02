@@ -7,6 +7,7 @@
 /* Model - Publisher */
 
 var stomp = require('stomp');
+var config = require('configure');
 
 var alert = process.argv[2]; // number of bouy's to create
 var buoy = process.argv[3]; // buoy name
@@ -19,11 +20,11 @@ var receipt = true;
 // Set debug to true for more verbose output.
 // login and passcode are optional (required by rabbitMQ)
 var stomp_args ={
-    port: 61613,
-    host: 'localhost',
-    debug: true,
-    login: '',
-    passcode: ''
+    port: config.stomp.port,
+    host: config.stomp.host,
+    debug: config.stomp.debug,
+    login: config.stomp.login,
+    passcode: config.stomp.pass
 };
 
 
