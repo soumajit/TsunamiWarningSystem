@@ -75,16 +75,16 @@ client.on('message', function(message) {
     io.sockets.volatile.emit('active-buoy', {data: signal.buoy});
     //io.sockets.volatile.emit('sensor-position', {data: pos});
 
-    if ((signal.pressure > 95 && signal.pressure < 104.99) &&  (signal.ritcher > 0 && signal.ritcher < 2.99) ){
+    if ((signal.pressure >= 95 && signal.pressure <= 104.99) &&  (signal.ritcher >= 0 && signal.ritcher <= 2.99) ){
         io.sockets.volatile.emit('reg-alert', {data: message.body});
     }
-    if ((signal.pressure > 105 && signal.pressure < 114.99) && (signal.ritcher > 3 && signal.ritcher < 3.99)) {
+    if ((signal.pressure >= 105 && signal.pressure <= 114.99) && (signal.ritcher >= 3 && signal.ritcher <= 3.99)) {
         io.sockets.volatile.emit('low-alert', {data: message.body});
     }
-    if ((signal.pressure > 115 && signal.pressure < 129.99) && (signal.ritcher > 4 && signal.ritcher < 5.99)) {
+    if ((signal.pressure >= 115 && signal.pressure <= 129.99) && (signal.ritcher >= 4 && signal.ritcher <= 5.99)) {
         io.sockets.volatile.emit('med-alert', {data: message.body});
     }
-    if ((signal.pressure > 130 && signal.pressure < 170) && (signal.ritcher > 5 && signal.ritcher < 10)) {
+    if ((signal.pressure >= 130 && signal.pressure <= 170) && (signal.ritcher >= 5 && signal.ritcher <= 10)) {
         io.sockets.volatile.emit('high-alert', {data: message.body});
     }
 });
