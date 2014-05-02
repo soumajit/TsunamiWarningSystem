@@ -46,7 +46,7 @@ var headers = { destination: '/queue/Buoys' };
 server.listen(8080,function() {
     console.log('\nTsunami Warning System Server');
     console.log('\nRunning on http://0.0.0.0:8080/');
-    console.log('\nMonitor Service on http://localhost/tws/index.html')
+    console.log('\nMonitor Service on http://localhost/web-service/index.html')
 });
 
 // Attach the web-socket to server
