@@ -40,30 +40,30 @@ function sleep(milliSeconds) {
 }
 
 function genPressure(type) {
-    var pressure = 0.0;
+    var pressure = 0.00;
     switch(type) {
         case 'reg-alert':
-            return Math.floor(Math.random() * (104.99 - 95 + 1)) + 95;		
+            return (Math.random() * (104.99 - 95.00) + 95.00).toFixed(2);		
         case 'low-alert':
-            return Math.floor(Math.random() * (114.99 - 105 + 1)) + 105;
+            return (Math.random() * (114.99 - 105.00) + 105.00).toFixed(2);
         case 'med-alert':
-            return Math.floor(Math.random() * (129.99 - 115 + 1)) + 115;
+            return (Math.random() * (129.99 - 115.00) + 115.00).toFixed(2);
         case 'high-alert':
-            return Math.floor(Math.random() * (170 - 130 + 1)) + 130;
+            return (Math.random() * (170.99 - 130.00) + 130.00).toFixed(2);
     }
 }
 
 function genSes(type) {
-    var richter = 0.0;
+    var richter = 0.00;
     switch(type) {
         case 'reg-alert':
-            return Math.floor(Math.random() * (2.99 - 0 + 1)) + 0;
+            return (Math.random() * (2.99 - 0.00) + 0.00).toFixed(2);
         case 'low-alert':
-            return Math.floor(Math.random() * (3.99 - 3 + 1)) + 3;
+            return (Math.random() * (3.99 - 3.00) + 3.00).toFixed(2);
         case 'med-alert':
-            return Math.floor(Math.random() * (5.99 - 4 + 1)) + 4;
+            return (Math.random() * (5.99 - 4.00) + 4.00).toFixed(2);
         case 'high-alert':
-            return Math.floor(Math.random() * (10 - 6 + 1)) + 6;	
+            return (Math.random() * (20.99 - 6.00) + 6.00).toFixed(2);	
     }
 }
 
