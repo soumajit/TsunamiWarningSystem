@@ -15,15 +15,27 @@
 	//console.log(obj);
 	if (obj == "buoy1") {
 		markers[0].setAnimation(google.maps.Animation.BOUNCE);
+		markers[1].setAnimation(null);
+		markers[2].setAnimation(null);
+		markers[3].setAnimation(null);
 	}
 	else if (obj == "buoy2") {
 		markers[1].setAnimation(google.maps.Animation.BOUNCE);
+		markers[0].setAnimation(null);
+		markers[2].setAnimation(null);
+		markers[3].setAnimation(null);
 	}
 	else if (obj == "buoy3") {
 		markers[2].setAnimation(google.maps.Animation.BOUNCE);
+		markers[0].setAnimation(null);
+		markers[1].setAnimation(null);
+		markers[3].setAnimation(null);
 	}
 	else if (obj == "buoy4") {
 		markers[3].setAnimation(google.maps.Animation.BOUNCE);
+		markers[0].setAnimation(null);
+		markers[1].setAnimation(null);
+		markers[2].setAnimation(null);
 	}
   	});
   
